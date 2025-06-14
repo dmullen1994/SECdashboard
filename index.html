@@ -12,17 +12,24 @@
     console.log("hello")
     const companyName = document.getElementById("name").value;
     try {
-      const response = await fetch("https://sec-add-company-851674678802.us-east4.run.app");
+      const response = await fetch("https://sec-add-company-851674678802.us-east4.run.app", {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json", 
+            },
+            body: JSON.stringify({ companyName })
+      });
       console.log("hello2")
       if (!response.ok) {
-        throw new Error(`Reponse status: ${response.status}`);
+        throw new Error(`Response status: ${response.status}`);
       }
       const json = await response.json();
       console.log(json);
-      console.log("hello")
+      console.log("hello3")
     } catch (error) {
       console.error(error.message);
-    }    
+    }  
+    console.log("bye")  
   }
 </script>
 
