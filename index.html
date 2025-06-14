@@ -2,8 +2,26 @@
 <html>
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<label for="name">Company Name:</label>
+<input type="text" id="name" name="name">
+
+<button onclick="addCompany()">Click me</button>
+
+<script>
+  function addCompany() {
+    const companyName = document.getElementById("myText").value;
+    try {
+      const response = await fetch(https://sec-add-company-851674678802.us-east4.run.app);
+      if (!response.ok) {
+        throw new Error(`Reponse status: ${response.status}`);
+      }
+      const json = await response.json();
+      console.log(json);
+    } catch (error) {
+      console.error(error.message);
+    }    
+  }
+</script>
 
 </body>
 </html>
